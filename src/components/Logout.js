@@ -9,7 +9,7 @@ function Logout() {
     }   
     return (
         <div className= "container">
-            <button onClick = {HandleLogout}>logout</button>
+            <button className = "btn btn-primary" onClick = {HandleLogout}>logout</button>
             {/* <Link to="/">Logout</Link> */}
         </div>
     )

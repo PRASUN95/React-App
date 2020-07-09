@@ -1,28 +1,36 @@
 import React, { Component } from 'react'
 import './Home.css'
 import Logout from './Logout'
-import {Redirect} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
+import DynamicSelect from './DynamicSelect'
 
 
 class Home extends Component {
     constructor(props) {
         super(props)
-    
+
         this.state = {
-             
+
         }
     }
-    
+
     render() {
-        if(localStorage.getItem("LoginSession") !== 'True')
-        {
-            return <Redirect to = "/"/>
+        if (localStorage.getItem("LoginSession") !== 'True') {
+            return <Redirect to="/" />
         }
-        else
+        let List = [
+            'Water Issue',
+            'Bad Internet',
+            'Cleaning',
+            'Light'
+        ]
         return (
             <div>
                 <div className="container">
-                    <Logout/>
+                    <Logout />
+                    <div>
+                        {new Date().toUTCString()}
+                    </div>
                     <div className="box">
                         <div className="text-header">
                             <span>Add Complaint</span>
@@ -49,7 +57,7 @@ class Home extends Component {
                                 </div>
                                 <div className="form-group col-md-6">
                                     <label htmlFor="complaint-type" className="align-left">Complaint-type</label>
-                                    <select id="complaint-type" className="form-control"><option>Select</option></select>
+                                    <DynamicSelect ListData={List} identifier='complaint-type' Class='form-control' />
                                 </div>
                             </div>
                             <div className="form-group">
@@ -103,7 +111,7 @@ class Home extends Component {
                                 </div>
                                 <div className="form-group col-md-6">
                                     <label className="align-left" htmlFor="complaint-type">Complaint-type</label>
-                                    <select id="complaint-type" className="form-control"><option>Select</option></select>
+                                    <DynamicSelect ListData={List} identifier='complaint-type' Class='form-control' />
                                 </div>
                             </div>
                             <div className="form-group">
