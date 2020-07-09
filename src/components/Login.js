@@ -15,7 +15,10 @@ class Login extends Component {
     }
     handleSubmit = (e) => {
         if(this.state.UserId === '123' && this.state.Password === '123')
-        this.props.history.push("/dashboard")
+        {
+            localStorage.setItem("LoginSession", "True");
+            this.props.history.push("/dashboard")
+        }
         e.preventDefault();
     }
     handleChange = (e) => {

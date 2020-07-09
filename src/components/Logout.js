@@ -1,15 +1,16 @@
 import React from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 function Logout() {
+    const history = useHistory();
     const HandleLogout = () => {
-        console.log('logout')
-        return <Redirect to = "/"/>
+        localStorage.removeItem("LoginSession")
+        history.push('/')
     }   
     return (
         <div className= "container">
-            {/* <button onClick = {HandleLogout}>logout</button> */}
-            <Link to="/">Logout</Link>
+            <button onClick = {HandleLogout}>logout</button>
+            {/* <Link to="/">Logout</Link> */}
         </div>
     )
 }

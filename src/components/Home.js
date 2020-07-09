@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Home.css'
 import Logout from './Logout'
+import {Redirect} from 'react-router-dom'
 
 
 class Home extends Component {
@@ -13,6 +14,11 @@ class Home extends Component {
     }
     
     render() {
+        if(localStorage.getItem("LoginSession") !== 'True')
+        {
+            return <Redirect to = "/"/>
+        }
+        else
         return (
             <div>
                 <div className="container">
