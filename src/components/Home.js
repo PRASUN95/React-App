@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Home.css'
 import Logout from './Logout'
-import { Redirect } from 'react-router-dom'
+import { Redirect,Link } from 'react-router-dom'
 import DynamicSelect from './DynamicSelect'
 
 
@@ -30,6 +30,9 @@ class Home extends Component {
                     <Logout />
                     <div>
                         {new Date().toUTCString()}
+                    </div>
+                    <div>
+                        <Link to = "Posts">posts</Link>
                     </div>
                     <div className="box">
                         <div className="text-header">
